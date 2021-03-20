@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Get Random Roll</h2>
+        <h2>Get Set Roll</h2>
     </div>
 </template>
 
