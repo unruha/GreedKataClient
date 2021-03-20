@@ -5,26 +5,26 @@
         <div class="values">
             <b>Roll Values: </b>
             <label class="inputLabel">
-                <input type="number" id="num1" name="num1" min="1" max="5" disabled>
+                <input type="number" v-model="nums[0]" id="num1" name="num1" min="1" max="5" disabled>
             </label>
             <label class="inputLabel">
-                <input type="number" id="num2" name="num2" min="1" max="5" disabled>
+                <input type="number" v-model="nums[1]" id="num2" name="num2" min="1" max="5" disabled>
             </label>
             <label class="inputLabel">
-                <input type="number" id="num3" name="num3" min="1" max="5" disabled>
+                <input type="number" v-model="nums[2]" id="num3" name="num3" min="1" max="5" disabled>
             </label>
             <label class="inputLabel">
-                <input type="number" id="num4" name="num4" min="1" max="5" disabled>
+                <input type="number" v-model="nums[3]" id="num4" name="num4" min="1" max="5" disabled>
             </label>
             <label class="inputLabel">
-                <input type="number" id="num5" name="num5" min="1" max="5" disabled>
+                <input type="number" v-model="nums[4]" id="num5" name="num5" min="1" max="5" disabled>
             </label>
         </div>
         <!-- score field -->
         <div class="scoreDiv">
             <label class="inputLabel">
                 <b>Score: </b>
-                <input class="score" type="number" id="score" name="score" disabled>
+                <input class="score" v-model="score" type="number" id="score" name="score" disabled>
             </label>
         </div>
         <!-- submit button -->
@@ -52,7 +52,10 @@ export default {
         getRollValues() {
             let rollsService = new RollsService();
             rollsService.getRandomRoll().then(res => {
-                console.log(res);
+                this.nums = res.data.DiceNumbers;
+                this.score = res.data.Score;
+                console.log(this.nums);
+                console.log(this.score);
             })
             .catch(err => {
                 console.log(err);
