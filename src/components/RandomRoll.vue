@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2>Get Random Roll</h2>
+        <h3>Press "Get Random!" to get a random roll and its score</h3>
         <!-- number input fields -->
         <div class="values">
             <b>Roll Values: </b>
@@ -54,8 +55,6 @@ export default {
             rollsService.getRandomRoll().then(res => {
                 this.nums = res.data.DiceNumbers;
                 this.score = res.data.Score;
-                console.log(this.nums);
-                console.log(this.score);
             })
             .catch(err => {
                 console.log(err);
