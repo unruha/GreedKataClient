@@ -1,6 +1,7 @@
 <template>
     <div>
         <h2>Get Random Roll</h2>
+        <!-- number input fields -->
         <div class="values">
             <b>Roll Values: </b>
             <label class="inputLabel">
@@ -19,19 +20,46 @@
                 <input type="number" id="num5" name="num5" min="1" max="5" disabled>
             </label>
         </div>
+        <!-- score field -->
         <div class="scoreDiv">
             <label class="inputLabel">
                 <b>Score: </b>
                 <input class="score" type="number" id="score" name="score" disabled>
             </label>
         </div>
+        <!-- submit button -->
         <div class="buttonDiv">
-            <button class="randomButton">Get Random!</button>
+            <button @click="getRollValues" class="randomButton">Get Random!</button>
         </div>
     </div>
 </template>
 
 <script>
+import RollsService from '../services/RollsService';
+
+export default {
+    name: "RandomRoll",
+    data() {
+        return {
+            // the values of the rolls
+            nums: [],
+            // score obtained from rolls
+            score: 0
+        }
+    },
+    methods: {
+        // calls the rolls api to get a random set of roll values and the score
+        getRollValues() {
+            let rollsService = new RollsService();
+            rollsService.getRandomRoll().then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+        }
+    }
+}
 
 </script>
 
