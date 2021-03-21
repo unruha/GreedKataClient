@@ -1,5 +1,11 @@
 # greedkataclient
 
+## Description
+```
+A frontend application that utilizes the API's provided by GreedKata (https://github.com/unruha/GreedKata) to 
+enter roll values and perform score calculation
+```
+
 ## Alaska Airlines Coding Exercise Prompt
 ```
 Questions you came up with:
