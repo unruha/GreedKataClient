@@ -1,3 +1,3 @@
 export default Object.freeze({
-    BASE_URL: "https://localhost:44378/api/rolls"
+    BASE_URL: "http://greedkata.us-west-2.elasticbeanstalk.com/api/rolls"
 });
